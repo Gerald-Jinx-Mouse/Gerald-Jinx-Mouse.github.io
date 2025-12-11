@@ -8,7 +8,7 @@
 
 In today's data-driven business landscape, the ability to effectively manage, transform, and analyze large volumes of data has become a critical skill for business analytics professionals. Enterprise Data Management (EDM) encompasses the processes, policies, and technologies that organizations use to acquire, store, maintain, and utilize data across their operations. This semester in BSAN 726, I embarked on a comprehensive journey through the foundations of data management, from relational database design and SQL querying to data warehousing concepts and big data technologies.
 
-The course challenged me to think systematically about how data flows through an organization—from initial collection and storage in operational databases, through transformation and loading into analytical data warehouses, to processing at scale using distributed computing frameworks. Along the way, I gained hands-on experience with multiple tools and technologies including SQL, Python pandas, R, Apache Spark, and various database platforms. This essay reflects on my key learnings and demonstrates how these skills connect to form a cohesive understanding of enterprise data management.
+The course challenged me to think systematically about how data flows through an organization, from initial collection and storage in operational databases, through transformation and loading into analytical data warehouses, to processing at scale using distributed computing frameworks. Along the way, I gained hands-on experience with multiple tools and technologies including SQL, Python pandas, R, Apache Spark, and various database platforms. This essay reflects on my key learnings and demonstrates how these skills connect to form a cohesive understanding of enterprise data management.
 
 ---
 
@@ -45,7 +45,7 @@ GROUP BY d.DISHNAME, r.RESTAURANTNAME
 ORDER BY d.DISHNAME, r.RESTAURANTNAME;
 ```
 
-This query demonstrates the power of SQL for business analytics—combining data from multiple tables to answer complex questions about purchasing patterns and regional preferences.
+This query demonstrates the power of SQL for business analytics, combining data from multiple tables to answer complex questions about purchasing patterns and regional preferences.
 
 ---
 
@@ -73,7 +73,7 @@ I also discovered the power of automated data profiling tools. Using `ydata-prof
 
 In R, the `DataExplorer` package provides similar functionality with a different approach. While Python pandas excels at programmatic data manipulation in data pipelines, R's strength lies in statistical analysis and visualization. Through this assignment, I learned that the choice between tools often depends on the specific task: Python for ETL pipelines and integration with other systems, R for statistical modeling and exploratory data analysis.
 
-The most valuable lesson was understanding that data rarely comes clean. The FAA dataset contained significant missing values—only a small percentage of records had repair cost data, yet those records were critical for understanding the financial impact of wildlife strikes.
+The most valuable lesson was understanding that data rarely comes clean. The FAA dataset contained significant missing values, only a small percentage of records had repair cost data, yet those records were critical for understanding the financial impact of wildlife strikes.
 
 ---
 
@@ -81,18 +81,18 @@ The most valuable lesson was understanding that data rarely comes clean. The FAA
 
 Moving beyond operational databases, the course introduced data warehousing as the foundation for business intelligence and analytics. Unlike transactional databases optimized for day-to-day operations (OLTP), data warehouses are designed for analytical queries (OLAP) that aggregate historical data across multiple dimensions.
 
-The star schema emerged as the central design pattern for data warehouses. In this architecture, a central fact table contains quantitative measures (like sales amounts or incident counts) surrounded by dimension tables that provide descriptive context (like time, location, or product categories). This denormalized structure sacrifices storage efficiency for query performance—critical when analysts need to aggregate millions of records.
+The star schema emerged as the central design pattern for data warehouses. In this architecture, a central fact table contains quantitative measures (like sales amounts or incident counts) surrounded by dimension tables that provide descriptive context (like time, location, or product categories). This denormalized structure sacrifices storage efficiency for query performance, critical when analysts need to aggregate millions of records.
 
 I learned to distinguish between different types of facts:
 - **Additive facts** can be summed across all dimensions (e.g., sales revenue)
-- **Semi-additive facts** can only be summed across certain dimensions (e.g., account balances—you can sum across customers but not across time)
+- **Semi-additive facts** can only be summed across certain dimensions (e.g., account balances, you can sum across customers but not across time)
 - **Non-additive facts** cannot be meaningfully summed (e.g., ratios, percentages)
 
-The concept of **factless fact tables** was particularly interesting—tables that record events without numeric measures, such as tracking which products were promoted on which dates. These tables answer questions about what *happened* rather than *how much*.
+The concept of **factless fact tables** was particularly interesting, tables that record events without numeric measures, such as tracking which products were promoted on which dates. These tables answer questions about what *happened* rather than *how much*.
 
 Assignment 3 challenged me to implement a star schema using the Star Schema Benchmark (SSB), creating dimension tables for dates, customers, suppliers, and parts, connected to a central lineorder fact table. This hands-on experience reinforced how proper dimensional modeling enables the complex analytical queries that drive business decisions.
 
-The **ETL (Extract, Transform, Load)** process that populates data warehouses presented its own challenges. Data from multiple source systems must be cleaned, standardized, and transformed before loading—a process that can account for 70-80% of a data warehousing project's effort.
+The **ETL (Extract, Transform, Load)** process that populates data warehouses presented its own challenges. Data from multiple source systems must be cleaned, standardized, and transformed before loading, a process that can account for 70-80% of a data warehousing project's effort.
 
 ---
 
@@ -102,7 +102,7 @@ When data volumes exceed what traditional databases can handle efficiently, dist
 
 **HDFS (Hadoop Distributed File System)** addresses storage challenges by distributing large files across clusters of commodity hardware. Rather than storing a file on a single server, HDFS breaks it into blocks (typically 128MB) and replicates each block across multiple nodes. This provides both scalability (add more nodes to store more data) and fault tolerance (if a node fails, replicas exist elsewhere).
 
-**Apache Spark** revolutionized big data processing by keeping data in memory rather than writing to disk between operations—making it up to 100x faster than Hadoop MapReduce for certain workloads. The concept of Resilient Distributed Datasets (RDDs) allows programmers to work with distributed data using familiar operations like map, filter, and reduce, while Spark handles the complexity of parallelization.
+**Apache Spark** revolutionized big data processing by keeping data in memory rather than writing to disk between operations, making it up to 100x faster than Hadoop MapReduce for certain workloads. The concept of Resilient Distributed Datasets (RDDs) allows programmers to work with distributed data using familiar operations like map, filter, and reduce, while Spark handles the complexity of parallelization.
 
 Working with GCP Dataproc clusters gave me hands-on experience with cloud-based big data infrastructure. Launching a cluster, submitting Spark jobs, and managing distributed processing demonstrated how organizations can scale analytics without maintaining physical hardware.
 
@@ -111,7 +111,7 @@ The course also introduced **NoSQL databases** as alternatives to relational sys
 - **Cassandra** for high-availability distributed systems
 - **Neo4j** for graph data where relationships are as important as entities
 
-Understanding when to use each technology—relational databases for structured data with complex relationships, NoSQL for flexibility and scale, Spark for large-scale batch processing—is crucial for modern data architects.
+Understanding when to use each technology, relational databases for structured data with complex relationships, NoSQL for flexibility and scale, Spark for large-scale batch processing, is crucial for modern data architects.
 
 ---
 
@@ -119,7 +119,7 @@ Understanding when to use each technology—relational databases for structured 
 
 The culmination of my learning came through the group project, where we analyzed FAA Wildlife Strike data spanning 2019-2020. My primary contribution was developing an interactive Python dashboard using Plotly that visualized strike patterns across multiple dimensions.
 
-The dashboard incorporates ten distinct visualizations examining the pandemic's impact on aviation safety. The data revealed a significant decrease in wildlife strikes during 2020—unsurprising given reduced flight activity, but the visualization made the magnitude immediately apparent. The geographic scatter map showed concentrations at major hub airports, while time-of-day analysis revealed that dusk presents the highest risk period.
+The dashboard incorporates ten distinct visualizations examining the pandemic's impact on aviation safety. The data revealed a significant decrease in wildlife strikes during 2020, unsurprising given reduced flight activity, but the visualization made the magnitude immediately apparent. The geographic scatter map showed concentrations at major hub airports, while time-of-day analysis revealed that dusk presents the highest risk period.
 
 Building this dashboard required integrating multiple skills from the course:
 
@@ -133,9 +133,9 @@ df['YEAR_MONTH'] = df['DATE'].dt.to_period('M').astype(str)
 monthly = df.groupby(['YEAR_MONTH', 'PANDEMIC']).size().reset_index(name='Count')
 ```
 
-The project reinforced that data visualization is not just about creating charts—it's about telling a story that drives decisions. Our analysis could inform airport wildlife management programs, helping them allocate resources during high-risk periods and locations.
+The project reinforced that data visualization is not just about creating charts, it's about telling a story that drives decisions. Our analysis could inform airport wildlife management programs, helping them allocate resources during high-risk periods and locations.
 
-Working with a team also highlighted the importance of data standardization. When multiple people contribute analysis, consistent naming conventions, documentation, and version control become essential—skills that translate directly to professional data environments.
+Working with a team also highlighted the importance of data standardization. When multiple people contribute analysis, consistent naming conventions, documentation, and version control become essential, skills that translate directly to professional data environments.
 
 ---
 
@@ -145,11 +145,11 @@ This course transformed my understanding of how enterprises manage data througho
 
 Python and R extend our capabilities for data wrangling and visualization. Data warehousing enables historical analysis through dimensional modeling and star schemas. Big data technologies like Spark and HDFS address scale challenges that exceed traditional database capabilities.
 
-Most importantly, I learned that these technologies are not competing alternatives but complementary tools in a data professional's toolkit. A modern data pipeline might extract from operational databases using SQL, transform and clean using Python, load into a dimensional warehouse, and process large-scale analyses using Spark—each technology applied where it excels.
+Most importantly, I learned that these technologies are not competing alternatives but complementary tools in a data professional's toolkit. A modern data pipeline might extract from operational databases using SQL, transform and clean using Python, load into a dimensional warehouse, and process large-scale analyses using Spark, each technology applied where it excels.
 
 As I continue my career in business analytics, the skills from this course provide a foundation for working with data at any scale. The ability to design databases, write efficient queries, wrangle messy data, understand warehouse architecture, and work with distributed systems opens doors to increasingly sophisticated analytical challenges.
 
-Enterprise data management is not just about technology—it's about enabling organizations to make better decisions through reliable, accessible, and well-governed data. That fundamental principle will guide my work regardless of which specific tools and platforms I encounter in the future.
+Enterprise data management is not just about technology, it's about enabling organizations to make better decisions through reliable, accessible, and well-governed data. That fundamental principle will guide my work regardless of which specific tools and platforms I encounter in the future.
 
 Generative AI, Anthropic was used to help me in uploading images and structuring my directory and data to Github
 
